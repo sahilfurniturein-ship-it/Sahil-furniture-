@@ -5,86 +5,196 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sahil Furniture</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-body{
-margin:0;
-font-family:Arial, sans-serif;
+:root{
+  --bg:#f6f3ee;
+  --accent:#b89b72;
+  --green:#25D366;
 }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:#333}
 
+/* HEADER */
 header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-background:#111;
-color:white;
+  position:sticky;top:0;z-index:1000;
+  background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
+/* LOGO FIX */
 .logo{
-font-size:26px;
-font-weight:bold;
+  font-family:'Playfair Display',serif;
+  font-size:26px;
+  font-weight:600;
+  white-space:nowrap;
 }
 
-.book-btn{
-padding:6px 14px;
-font-size:14px;
-background:#fff;
-color:#000;
-text-decoration:none;
-border-radius:5px;
+/* BUTTON SMALL */
+.btn{
+  padding:8px 18px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  display:inline-block;
+  font-size:14px;
+}
+.btn-green{
+  background:var(--green);
+  color:#fff;
 }
 
+/* HERO */
 .hero{
-background:url('images/hero.jpg') center/cover no-repeat;
-color:white;
-text-align:center;
-padding:100px 20px;
+  height:90vh;
+  background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600') center/cover no-repeat;
+  position:relative;
 }
-
+.hero::after{
+  content:"";
+  position:absolute;inset:0;
+  background:rgba(0,0,0,.5);
+}
+.hero-content{
+  position:relative;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:#fff;
+  padding:20px;
+}
 .hero h1{
-font-size:42px;
-margin-bottom:20px;
+  font-family:'Playfair Display',serif;
+  font-size:44px
+}
+.hero p{
+  font-size:18px;
+  margin:15px 0
 }
 
-.whatsapp-btn{
-background:#25D366;
-color:white;
-padding:14px 28px;
-border-radius:6px;
-text-decoration:none;
-font-weight:bold;
-display:inline-block;
+/* SECTION */
+.section{padding:80px 20px}
+.section h2{
+  text-align:center;
+  font-family:'Playfair Display',serif;
+  margin-bottom:40px;
 }
 
-.section{
-padding:60px 20px;
-text-align:center;
+/* SERVICES */
+.service-tabs{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+}
+.service-tabs button{
+  padding:10px 22px;
+  border:none;
+  border-radius:30px;
+  background:#e5ded3;
+  font-weight:600;
+  cursor:pointer;
+}
+.service-tabs button.active{background:var(--accent)}
+.service-images{
+  margin-top:40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.service-images img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:18px;
 }
 
+/* SOFA */
+.sofa-section{
+  background:#fff;
+  padding:60px 20px;
+}
+.sofa-content{
+  max-width:1000px;
+  margin:auto;
+  text-align:center;
+}
 .sofa-images{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-margin-top:20px;
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
 }
-
 .sofa-images img{
-width:300px;
-border-radius:10px;
+  width:100%;
+  border-radius:20px;
 }
 
+/* FEATURES */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  text-align:center;
+}
+.feature{
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+}
+
+/* PROCESS */
+.process{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+.process-card{
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+}
+
+/* REVIEWS */
+.review{
+  background:#fff;
+  padding:20px;
+  border-radius:20px;
+  text-align:center;
+  margin:10px;
+}
 .review img{
-width:80px;
-border-radius:50%;
-margin-bottom:10px;
+  width:60px;height:60px;border-radius:50%;
 }
 
-.footer{
-background:#111;
-color:white;
-text-align:center;
-padding:20px;
+/* FINAL CTA */
+.final-cta{
+  background:#1e1e1e;
+  color:#fff;
+  text-align:center;
+  padding:80px 20px;
+}
+
+/* FOOTER */
+footer{
+  background:#111;
+  color:#fff;
+  padding:40px 20px;
+  text-align:center;
+}
+.social a{
+  color:#fff;
+  margin:0 10px;
+  font-size:20px;
 }
 </style>
 </head>
@@ -92,70 +202,88 @@ padding:20px;
 <body>
 
 <header>
-<div class="logo">Sahil Furniture</div>
-<a href="#" class="book-btn">Book Now</a>
+  <div class="logo">Sahil Furniture</div>
+  <a href="https://wa.me/919117377527" target="_blank" class="btn btn-green">Book Now</a>
 </header>
 
 <section class="hero">
-<h1>Crafting Elegance Since 2014</h1>
-<a href="https://wa.me/919876543210" target="_blank" class="whatsapp-btn">
-Chat on WhatsApp
-</a>
+  <div class="hero-content">
+    <h1>Crafting Elegance Since 2014</h1>
+    <p>Premium Custom Furniture for Modern Homes</p>
+    <a href="https://wa.me/919117377527" target="_blank" class="btn btn-green">
+      <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+    </a>
+  </div>
 </section>
 
 <section class="section">
 <h2>Our Services</h2>
-<p>Bedroom | Kitchen | Wardrobe | Modular Storage | Living Room</p>
+<div class="service-tabs">
+  <button class="active">Bedroom</button>
+  <button>Kitchen</button>
+  <button>Wardrobe</button>
+  <button>Modular Storage</button>
+  <button>Living Room</button>
+</div>
 </section>
 
-<section class="section">
+<section class="sofa-section">
+<div class="sofa-content">
 <h2>Sofa Specialist</h2>
-<p>We manufacture premium quality custom sofas using high-density foam,
-strong wooden frames and luxury fabric finishing. Designed for comfort
-and long-lasting durability.</p>
+<p>We manufacture all types of custom sofas including L-shape sofas,
+3+2 seater sets, recliners, wooden sofas and luxury designer sofas.</p>
 
 <div class="sofa-images">
-<img src="images/sofa1.jpg" alt="Sofa 1">
-<img src="images/sofa2.jpg" alt="Sofa 2">
+<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800">
+<img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800">
+</div>
 </div>
 </section>
 
 <section class="section">
 <h2>Why Choose Sahil Furniture</h2>
-<p>Trusted craftsmanship, modern designs, affordable pricing and on-time delivery.</p>
+<div class="features">
+  <div class="feature"><h3>10 Years Warranty</h3></div>
+  <div class="feature"><h3>Easy EMI Options</h3></div>
+  <div class="feature"><h3>Quality Checked</h3></div>
+  <div class="feature"><h3>On-Time Delivery</h3></div>
+</div>
 </section>
 
 <section class="section">
 <h2>Our Working Process</h2>
-<p>Consultation → Design → Manufacturing → Installation → Final Handover</p>
-</section>
-
-<section class="section review">
-<h2>Customer Review</h2>
-<img src="images/indian-customer.jpg" alt="Customer">
-<p>"Amazing quality and professional service. Highly recommended!"</p>
-<strong>Rohit Sharma</strong>
+<div class="process">
+  <div class="process-card"><h3>Free Consultation</h3></div>
+  <div class="process-card"><h3>Design & Planning</h3></div>
+  <div class="process-card"><h3>Manufacturing</h3></div>
+</div>
 </section>
 
 <section class="section">
+<h2>Customer Reviews</h2>
+<div class="review">
+<img src="https://randomuser.me/api/portraits/men/75.jpg">
+<p>Excellent quality sofa and great service.</p>
+</div>
+</section>
+
+<section class="final-cta">
 <h2>Transform Your Space Today</h2>
-<p>Book a free consultation with our experts</p>
-<a href="https://wa.me/919876543210" target="_blank" class="whatsapp-btn">
+<p>Book a free consultation with our experts</p><br>
+<a href="https://wa.me/919117377527" target="_blank" class="btn btn-green">
 Chat on WhatsApp
 </a>
 </section>
 
-<section class="section">
-<h2>About Us</h2>
-<p>Sahil Furniture is a trusted name in custom furniture manufacturing,
-delivering premium quality interiors since 2014.</p>
-</section>
-
-<footer class="footer">
-<p>Follow Us</p>
-<p>Instagram | Facebook | WhatsApp</p>
+<footer>
+<p>Premium custom furniture with factory-direct pricing.</p>
+<div class="social">
+  <a href="#"><i class="fab fa-facebook-f"></i></a>
+  <a href="#"><i class="fab fa-instagram"></i></a>
+  <a href="https://wa.me/919117377527"><i class="fab fa-whatsapp"></i></a>
+</div>
 <p>© 2026 Sahil Furniture</p>
 </footer>
 
 </body>
-  </html>
+</html>

@@ -11,7 +11,9 @@
 <style>
 :root{
   --bg:#f6f3ee;
+  --dark:#1e1e1e;
   --accent:#b89b72;
+  --white:#ffffff;
   --green:#25D366;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -27,28 +29,20 @@ header{
   padding:15px 30px;
   box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
-
-/* LOGO FIX */
 .logo{
   font-family:'Playfair Display',serif;
   font-size:26px;
-  font-weight:600;
-  white-space:nowrap;
 }
 
-/* BUTTON SMALL */
+/* BUTTON */
 .btn{
-  padding:8px 18px;
+  padding:12px 28px;
   border-radius:30px;
   text-decoration:none;
   font-weight:600;
   display:inline-block;
-  font-size:14px;
 }
-.btn-green{
-  background:var(--green);
-  color:#fff;
-}
+.btn-green{background:var(--green);color:#fff}
 
 /* HERO */
 .hero{
@@ -72,14 +66,8 @@ header{
   color:#fff;
   padding:20px;
 }
-.hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:44px
-}
-.hero p{
-  font-size:18px;
-  margin:15px 0
-}
+.hero h1{font-family:'Playfair Display',serif;font-size:44px}
+.hero p{font-size:18px;margin:15px 0}
 
 /* SECTION */
 .section{padding:80px 20px}
@@ -118,7 +106,7 @@ header{
   border-radius:18px;
 }
 
-/* SOFA */
+/* SOFA SPECIALIST */
 .sofa-section{
   background:#fff;
   padding:60px 20px;
@@ -151,6 +139,7 @@ header{
   padding:30px;
   border-radius:20px;
 }
+.feature i{font-size:28px;color:var(--accent);margin-bottom:15px}
 
 /* PROCESS */
 .process{
@@ -165,16 +154,27 @@ header{
 }
 
 /* REVIEWS */
+.review-slider{overflow:hidden}
+.review-track{
+  display:flex;
+  gap:20px;
+  animation:scroll 35s linear infinite;
+}
+@keyframes scroll{
+  0%{transform:translateX(100%)}
+  100%{transform:translateX(-100%)}
+}
 .review{
+  min-width:260px;
   background:#fff;
   padding:20px;
   border-radius:20px;
   text-align:center;
-  margin:10px;
 }
 .review img{
   width:60px;height:60px;border-radius:50%;
 }
+.stars{color:gold}
 
 /* FINAL CTA */
 .final-cta{
@@ -219,19 +219,24 @@ footer{
 <section class="section">
 <h2>Our Services</h2>
 <div class="service-tabs">
-  <button class="active">Bedroom</button>
-  <button>Kitchen</button>
-  <button>Wardrobe</button>
-  <button>Modular Storage</button>
-  <button>Living Room</button>
+  <button class="active" onclick="showService('bedroom')">Bedroom</button>
+  <button onclick="showService('kitchen')">Kitchen</button>
+  <button onclick="showService('wardrobe')">Wardrobe</button>
+  <button onclick="showService('modular')">Modular Storage</button>
+  <button onclick="showService('living')">Living Room</button>
 </div>
+<div class="service-images" id="serviceImages"></div>
 </section>
 
+<!-- SOFA SPECIALIST -->
 <section class="sofa-section">
 <div class="sofa-content">
 <h2>Sofa Specialist</h2>
-<p>We manufacture all types of custom sofas including L-shape sofas,
-3+2 seater sets, recliners, wooden sofas and luxury designer sofas.</p>
+<p>
+We manufacture all types of custom sofas including L-shape sofas,
+3+2 seater sets, recliners, wooden sofas and luxury designer sofas.
+Choose your fabric, size, foam quality and design — we build it exactly the way you want.
+</p>
 
 <div class="sofa-images">
 <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800">
@@ -243,47 +248,98 @@ footer{
 <section class="section">
 <h2>Why Choose Sahil Furniture</h2>
 <div class="features">
-  <div class="feature"><h3>10 Years Warranty</h3></div>
-  <div class="feature"><h3>Easy EMI Options</h3></div>
-  <div class="feature"><h3>Quality Checked</h3></div>
-  <div class="feature"><h3>On-Time Delivery</h3></div>
+  <div class="feature"><i class="fas fa-shield-alt"></i><h3>10 Years Warranty</h3></div>
+  <div class="feature"><i class="fas fa-credit-card"></i><h3>Easy EMI Options</h3></div>
+  <div class="feature"><i class="fas fa-check-circle"></i><h3>Quality Checked</h3></div>
+  <div class="feature"><i class="fas fa-truck"></i><h3>On-Time Delivery</h3></div>
 </div>
 </section>
 
 <section class="section">
 <h2>Our Working Process</h2>
 <div class="process">
-  <div class="process-card"><h3>Free Consultation</h3></div>
-  <div class="process-card"><h3>Design & Planning</h3></div>
-  <div class="process-card"><h3>Manufacturing</h3></div>
+  <div class="process-card"><h3>Free Consultation</h3><p>Requirement & site measurement</p></div>
+  <div class="process-card"><h3>Design & Planning</h3><p>Material, color & 3D design</p></div>
+  <div class="process-card"><h3>Manufacturing</h3><p>Direct factory production with premium material</p></div>
 </div>
 </section>
 
 <section class="section">
 <h2>Customer Reviews</h2>
-<div class="review">
-<img src="https://randomuser.me/api/portraits/men/75.jpg">
-<p>Excellent quality sofa and great service.</p>
+<div class="review-slider">
+<div class="review-track">
+  <div class="review"><img src="https://randomuser.me/api/portraits/men/32.jpg"><div class="stars">★★★★★</div><p>Excellent quality sofa.</p></div>
+  <div class="review"><img src="https://randomuser.me/api/portraits/women/44.jpg"><div class="stars">★★★★★</div><p>Luxury finish & perfect design.</p></div>
+  <div class="review"><img src="https://randomuser.me/api/portraits/men/76.jpg"><div class="stars">★★★★★</div><p>Highly recommended in Mumbai.</p></div>
+</div>
 </div>
 </section>
 
 <section class="final-cta">
 <h2>Transform Your Space Today</h2>
 <p>Book a free consultation with our experts</p><br>
-<a href="https://wa.me/919117377527" target="_blank" class="btn btn-green">
-Chat on WhatsApp
+<a href="https://wa.me/919117377527" class="btn btn-green">
+<i class="fab fa-whatsapp"></i> Chat on WhatsApp
 </a>
 </section>
 
 <footer>
-<p>Premium custom furniture with factory-direct pricing.</p>
+<p>About Sahil Furniture <br>
+Premium custom furniture with factory-direct pricing.</p>
 <div class="social">
   <a href="#"><i class="fab fa-facebook-f"></i></a>
   <a href="#"><i class="fab fa-instagram"></i></a>
   <a href="https://wa.me/919117377527"><i class="fab fa-whatsapp"></i></a>
+  <a href="mailto:hello@sahilfurniture.in"><i class="fas fa-envelope"></i></a>
 </div>
 <p>© 2026 Sahil Furniture</p>
 </footer>
+
+<script>
+const images={
+bedroom:[
+'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800',
+'https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800',
+'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
+'https://images.unsplash.com/photo-1618220179428-22790b461013?w=800'
+],
+kitchen:[
+'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800',
+'https://images.unsplash.com/photo-1556912990-dac0f9b0c6f4?w=800',
+'https://images.unsplash.com/photo-1600585154204-6f2d44c62b79?w=800',
+'https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?w=800'
+],
+wardrobe:[
+'https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=800',
+'https://images.unsplash.com/photo-1618220179428-22790b461013?w=800',
+'https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800',
+'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800'
+],
+modular:[
+'https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800',
+'https://images.unsplash.com/photo-1600585154204-6f2d44c62b79?w=800',
+'https://images.unsplash.com/photo-1556912990-dac0f9b0c6f4?w=800',
+'https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?w=800'
+],
+living:[
+'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
+'https://images.unsplash.com/photo-1618220179428-22790b461013?w=800',
+'https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800',
+'https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?w=800'
+]
+};
+
+function showService(type){
+  const container=document.getElementById('serviceImages');
+  container.innerHTML='';
+  images[type].forEach(img=>{
+    container.innerHTML+=`<img src="${img}">`;
+  });
+  document.querySelectorAll('.service-tabs button').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+showService('bedroom');
+</script>
 
 </body>
 </html>

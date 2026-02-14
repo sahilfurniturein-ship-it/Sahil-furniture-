@@ -51,16 +51,13 @@ header{
   position:relative;
 }
 .hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.5);
-  z-index:1;
+  pointer-events: none;
 }
 }
 .hero-content{
   position:relative;
   z-index:2;
+}
   height:100%;
   display:flex;
   flex-direction:column;
@@ -215,8 +212,17 @@ footer{
     <h1>Crafting Elegance Since 2014</h1>
     <p>Premium Custom Furniture for Modern Homes</p>
 
-    <a href="https://wa.me/919117377527" target="_blank" class="btn btn-green">
-      <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+    <a href="https://wa.me/919117377527" 
+   target="_blank"
+   style="background:#25D366;
+          color:white;
+          padding:14px 28px;
+          border-radius:30px;
+          text-decoration:none;
+          display:inline-block;
+          position:relative;
+          z-index:3;">
+   Chat on WhatsApp
     </a>
 
   </div>
@@ -349,6 +355,7 @@ showService('bedroom');
 
 </body>
 </html>
+
 
 
 
